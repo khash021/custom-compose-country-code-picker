@@ -63,7 +63,7 @@ dependencies {
     testImplementation(libs.truth)
 }
 
-group = "io.github.joelkanyi"
+group = "com.github.khash021"
 version = properties["version"] as String
 
 
@@ -73,9 +73,9 @@ mavenPublishing {
     signAllPublications()
 
     pom {
-        name.set("KomposeCountryCodePicker")
-        description.set("Kompose Country Code Picker is a Jetpack Compose library based on Material 3 (M3) that provides a country code picker for Android apps.")
-        url.set("https://github.com/joelkanyi/KomposeCountryCodePicker")
+        name.set("custom-compose-country-code-picker")
+        description.set("Custom Compose Country Code Picker based on \"kompose-country-code-picker\" is a Jetpack Compose library based on Material 3 (M3) that provides a country code picker for Android apps.")
+        url.set("https://github.com/khash021/custom-compose-country-code-picker")
 
         licenses {
             license {
@@ -86,7 +86,7 @@ mavenPublishing {
 
         issueManagement {
             system.set("GitHub Issues")
-            url.set("https://github.com/joelkanyi/KomposeCountryCodePicker/issues")
+            url.set("https://github.com/khash021/custom-compose-country-code-picker/issues")
         }
 
         developers {
@@ -98,9 +98,9 @@ mavenPublishing {
         }
 
         scm {
-            connection.set("scm:git:git://github.com:joelkanyi/KomposeCountryCodePicker.git")
-            developerConnection.set("scm:git:ssh://github.com:joelkanyi/KomposeCountryCodePicker.git")
-            url.set("https://github.com/joelkanyi/KomposeCountryCodePicker")
+            connection.set("scm:git:git://github.com:khash021/custom-compose-country-code-picker.git")
+            developerConnection.set("scm:git:ssh://github.com:khash021/custom-compose-country-code-picker.git")
+            url.set("https://github.com/khash021/custom-compose-country-code-picker")
         }
     }
 }

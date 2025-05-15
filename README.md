@@ -11,7 +11,7 @@ documentation.
 #### Add the dependency to your dependencies block in your app's build.gradle file:
 ```kotlin
 dependencies {
-    implementation("io.github.joelkanyi:komposecountrycodepicker:<latest-version>")
+    implementation("com.github.khash021:custom-compose-country-code-picker:<latest-version>")
 }
 ```
 
