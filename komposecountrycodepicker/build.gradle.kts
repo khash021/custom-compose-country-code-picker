@@ -70,7 +70,9 @@ version = properties["version"] as String
 mavenPublishing {
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
 
-    signAllPublications()
+    if (!project.hasProperty("jitpack")) {
+        signAllPublications()
+    }
 
     pom {
         name.set("custom-compose-country-code-picker")
