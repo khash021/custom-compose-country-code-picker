@@ -1,9 +1,12 @@
-[![Maven central](https://img.shields.io/maven-central/v/io.github.joelkanyi/komposecountrycodepicker.svg)](https://search.maven.org/artifact/io.github.joelkanyi/komposecountrycodepicker) ![Build status](https://github.com/joelkanyi/kompose-country-code-picker/actions/workflows/build.yml/badge.svg)
+[![](https://jitpack.io/v/khash021/custom-compose-country-code-picker.svg)](https://jitpack.io/#khash021/custom-compose-country-code-picker)
 
-# Kompose Country Code Picker
 
-Kompose Country Code Picker is a Jetpack Compose library based on Material 3 (M3) that provides a
+# Custom Compose Country Code Picker
+
+Custom Compose Country Code Picker (built based off of [joelkanyi's Kompose Country Code Picker](https://github.com/joelkanyi/kompose-country-code-picker)) is a  Material 3 (M3) Jetpack Compose library that provides a
 country code picker for Android apps.
+
+This provides more UI customization with the ability to modify all text styles, paddings, icons and much more. Refer to the main function's (`CustomComposeCountryCodePicker`) docs for detailed explanation of all parameters
 
 See the [project's website](https://joelkanyi.github.io/kompose-country-code-picker/) for
 documentation.
@@ -22,12 +25,12 @@ val state = rememberKomposeCountryCodePickerState(
     // limitedCountries = listOf("KE", "UG", "TZ", "RW", "SS"),
     showCountryCode = true,
     showCountryFlag = true,
-    defaultCountryCode = "KE",
+    defaultCountryCode = "US",
 )
 
-KomposeCountryCodePicker(
-    state = state,
+CustomComposeCountryCodePicker(
     modifier = Modifier.fillMaxWidth(),
+    state = state,
     text = phoneNumber,
     onValueChange = {
         phoneNumber = it
