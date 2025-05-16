@@ -68,11 +68,6 @@ version = properties["version"] as String
 
 
 mavenPublishing {
-    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
-
-    if (!project.hasProperty("jitpack")) {
-        signAllPublications()
-    }
 
     pom {
         name.set("custom-compose-country-code-picker")
@@ -104,13 +99,5 @@ mavenPublishing {
             developerConnection.set("scm:git:ssh://github.com:khash021/custom-compose-country-code-picker.git")
             url.set("https://github.com/khash021/custom-compose-country-code-picker")
         }
-    }
-}
-
-nmcp {
-    publishAllPublications {
-        username = System.getenv("MAVEN_CENTRAL_USERNAME")
-        password = System.getenv("MAVEN_CENTRAL_PASSWORD")
-        publicationType = "AUTOMATIC"
     }
 }
