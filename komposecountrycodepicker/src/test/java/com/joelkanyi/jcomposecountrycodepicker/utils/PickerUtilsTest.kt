@@ -115,6 +115,42 @@ class PickerUtilsTest {
     }
 
     @Test
+    fun testExtractCountryCodeAndPhoneNumberUs() {
+        // Given
+        val wholePhoneNumber = "+12129244466"
+
+        // When
+        val countryCode = PickerUtils.extractCountryCodeAndPhoneNumber(wholePhoneNumber, isUS = true).first
+
+        // Then
+        assertThat(countryCode).isEqualTo("us")
+    }
+
+    @Test
+    fun testExtractCountryCodeAndPhoneNumberCanada() {
+        // Given
+        val wholePhoneNumber = "+12129244466"
+
+        // When
+        val countryCode = PickerUtils.extractCountryCodeAndPhoneNumber(wholePhoneNumber, isUS = false).first
+
+        // Then
+        assertThat(countryCode).isEqualTo("ca")
+    }
+
+    @Test
+    fun testExtractCountryCodeAndPhoneNumberUk() {
+        // Given
+        val wholePhoneNumber = "+442072872200"
+
+        // When
+        val countryCode = PickerUtils.extractCountryCodeAndPhoneNumber(wholePhoneNumber, isUS = false).first
+
+        // Then
+        assertThat(countryCode).isEqualTo("gb")
+    }
+
+    @Test
     fun testReturnsLimitedCountries() {
         // Given
         val limitedCountriesString = listOf(

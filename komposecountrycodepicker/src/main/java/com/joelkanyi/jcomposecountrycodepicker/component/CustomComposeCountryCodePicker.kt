@@ -64,6 +64,7 @@ import com.joelkanyi.jcomposecountrycodepicker.utils.PickerUtils.getCountry
  *
  * @param modifier Modifier to be applied to the layout.
  * @param state The state of the country code picker.
+ * @param isUS For numbers starting with "+1", if true, sets the country to US, otherwise Canada
  * @param phoneNumber The text to be displayed in the text field.
  * @param phoneNumberTextStyle The style to be used for displaying phone number text
  * @param onValueChange Called when the value is changed.
@@ -112,6 +113,7 @@ import com.joelkanyi.jcomposecountrycodepicker.utils.PickerUtils.getCountry
 @Composable
 public fun CustomComposeCountryCodePicker(modifier: Modifier = Modifier,
                                           state: CountryCodePicker,
+                                          isUS: Boolean = true,
                                           phoneNumber: String,
                                           phoneNumberTextStyle: TextStyle = TextStyle.Default,
                                           onValueChange: (String) -> Unit = {},
@@ -162,7 +164,7 @@ public fun CustomComposeCountryCodePicker(modifier: Modifier = Modifier,
 
     var openCountrySelectionDialog by rememberSaveable { mutableStateOf(false) }
 
-    val phoneTextPair = extractCountryCodeAndPhoneNumber(phoneNumber)
+    val phoneTextPair = extractCountryCodeAndPhoneNumber(phoneNumber, isUS)
     val countryCode = phoneTextPair.first
     val phoneNo = phoneTextPair.second
 

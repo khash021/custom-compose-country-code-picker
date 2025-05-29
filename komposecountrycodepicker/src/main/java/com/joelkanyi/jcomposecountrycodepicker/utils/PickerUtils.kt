@@ -21,6 +21,7 @@ import com.google.i18n.phonenumbers.NumberParseException
 import com.google.i18n.phonenumbers.PhoneNumberUtil
 import com.joelkanyi.jcomposecountrycodepicker.R
 import com.joelkanyi.jcomposecountrycodepicker.data.Country
+import com.joelkanyi.jcomposecountrycodepicker.utils.PickerUtils.getCountry
 
 internal object PickerUtils {
     /**
@@ -132,8 +133,22 @@ internal object PickerUtils {
      *
      * @param wholePhoneNumber The phone number to be extracted.
      */
-    fun extractCountryCodeAndPhoneNumber(wholePhoneNumber: String): Pair<String?, String> {
-        val country = allCountries.find { wholePhoneNumber.startsWith(it.phoneNoCode) }
+    fun extractCountryCodeAndPhoneNumber(wholePhoneNumber: String, isUS: Boolean = true): Pair<String?, String> {
+        val country = when {
+            wholePhoneNumber.startsWith("+1") -> {
+                val name = if (isUS) "United States" else "Canada"
+                allCountries.find { it.name.equals(name, true) }
+            }
+
+            wholePhoneNumber.startsWith("+44") -> {
+                allCountries.find { it.name.equals("United Kingdom", true) }
+            }
+
+            else -> {
+                allCountries.find { wholePhoneNumber.startsWith(it.phoneNoCode) }
+            }
+        }
+
         return if (country != null) {
             country.code to stripPhoneCode(
                 phoneCode = country.phoneNoCode,
